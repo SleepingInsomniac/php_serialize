@@ -38,6 +38,7 @@
 # details on the PHP side of all this.
 
 require 'ostruct'
+require 'set'
 
 module PHP
   # string = PHP.serialize(mixed var[, bool assoc])
@@ -56,7 +57,8 @@ module PHP
   def PHP.serialize(var, assoc = false) # {{{
     s = ''
     case var
-      when Array
+      when Array, Set
+        var = var.to_a
         s << "a:#{var.size}:{"
         if assoc and var.first.is_a?(Array) and var.first.size == 2
           var.each { |k,v|

@@ -1,4 +1,4 @@
-#!/usr/local/bin/ruby
+#!/usr/bin/env ruby
 # encoding: UTF-8
 
 require 'test/unit'
